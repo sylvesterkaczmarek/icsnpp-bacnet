@@ -1951,7 +1951,8 @@ refine flow BACNET_Flow += {
                                 property_array_index = get_unsigned(${tags[i].tag_data});
                                 break;
                             case 3:
-                                priority = ${tags[i].tag_data[0]};
+                                if ( ${tags[i].tag_length} == 1 )
+                                    priority = ${tags[i].tag_data[0]};
                                 break;
                             default:
                                 break;
